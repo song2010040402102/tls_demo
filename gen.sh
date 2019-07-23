@@ -8,5 +8,5 @@ openssl req -new -key server.key -subj "/CN=localhost" -out server.csr
 openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 5000
 #生成客户端秘钥及用CA来签发其证书  
 openssl genrsa -out client.key 2048  
-openssl req -new -key server.key -subj "/CN=localhost" -out client.csr  
-openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.crt -days 5000
+openssl req -new -key client.key -subj "/CN=localhost" -out client.csr  
+openssl x509 -req -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.crt -days 5000
